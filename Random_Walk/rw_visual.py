@@ -5,19 +5,19 @@ from random_walk import RandomWalk
 
 while True:
     #Make a random walk
-    rw = RandomWalk()
+    rw = RandomWalk(50)
     rw.fill_walk()
 
     #plot the points in the walk
     plt.style.use('classic')
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(15, 9))
     point_numbers = range(rw.num_points)
-    ax.scatter(rw.x_value, rw.y_value, c=point_numbers, cmap=plt.cm.Blues, edgecolors='none', s=15)
+    ax.plot(rw.x_value, rw.y_value, linewidth=1)
     ax.set_aspect('equal')
 
     #Emphasize the first and last points.
-    ax.scatter(0, 0, c='green', edgecolors='none', s=100)
-    ax.scatter(rw.x_value[-1], rw.y_value[-1], c='red', edgecolors='none', s=100)
+    ax.plot(0, 0, linewidth=3)
+    ax.plot(rw.x_value[-1], rw.y_value[-1], linewidth=3)
 
     plt.show()
 
